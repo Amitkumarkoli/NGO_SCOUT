@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class WelcomeProvider with ChangeNotifier {
-  String _welcomeMessage = "Welcome to NGO Connect!";
+class WelcomeProvider extends ChangeNotifier {
+  bool _showNewContent = false;
 
-  String get welcomeMessage => _welcomeMessage;
+  bool get showNewContent => _showNewContent;
 
-  void updateMessage(String newMessage) {
-    _welcomeMessage = newMessage;
+  void showNewScreen() {
+    _showNewContent = true;
     notifyListeners();
   }
 }

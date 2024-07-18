@@ -5,7 +5,6 @@ class LightTheme {
     return ThemeData(
       primarySwatch: Colors.blue,
       brightness: Brightness.light,
-      // Add other light theme settings here
     );
   }
 }

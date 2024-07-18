@@ -1,32 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:ngo_scout/features/domain/providers/welcome_provider.dart';
+import 'package:ngo_scout/features/presentation/screens/welcome_screen.dart';
 import 'package:provider/provider.dart';
-import 'core/routes/app_routes.dart';
-import 'core/theme/app_theme.dart';
-import 'features/domain/providers/welcome_provider.dart';
-import 'features/presentation/screens/welcome_screen.dart';
 
 void main() {
-  runApp(const NGOConnectApp());
+  runApp(MyApp());
 }
 
-class NGOConnectApp extends StatelessWidget {
-  const NGOConnectApp({super.key});
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => WelcomeProvider()),
-      ],
+    return ChangeNotifierProvider(
+      create: (context) => WelcomeProvider(),
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'NGO Connect',
-        theme: AppTheme.lightTheme,
-        darkTheme: AppTheme.darkTheme,
-        initialRoute: AppRoutes.welcome,
-        routes: {
-          AppRoutes.welcome: (context) => const WelcomeScreen(),
-        },
+        title: 'NGO Scout',
+        theme: ThemeData(
+          primarySwatch: Colors.green,
+        ),
+        home: WelcomeScreen(),
       ),
     );
   }
