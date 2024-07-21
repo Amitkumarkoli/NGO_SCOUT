@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Top image
-            Container(
+            
+            SizedBox(
               width: double.infinity,
               height: MediaQuery.of(context).size.height * 0.4,
               child: Image.asset(
@@ -17,7 +19,7 @@ class SignUpScreen extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Column(
@@ -31,20 +33,20 @@ class SignUpScreen extends StatelessWidget {
                       color: Colors.green[500],
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   TextFormField(
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.email),
+                      prefixIcon: const Icon(Icons.email),
                       labelText: 'Enter Email',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextFormField(
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.lock),
+                      prefixIcon: const Icon(Icons.lock),
                       labelText: 'Enter Password',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -52,10 +54,10 @@ class SignUpScreen extends StatelessWidget {
                     ),
                     obscureText: true,
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextFormField(
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.lock),
+                      prefixIcon: const Icon(Icons.lock),
                       labelText: 'Confirm Password',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -63,10 +65,10 @@ class SignUpScreen extends StatelessWidget {
                     ),
                     obscureText: true,
                   ),
-                  SizedBox(height: 10),
-                  Container(
-                    width: 150, // Set the desired width
-                    height: 60, // Set the desired height
+                  const SizedBox(height: 10),
+                  SizedBox(
+                    width: 150, 
+                    height: 60, 
                     child: DropdownButtonFormField<String>(
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -75,22 +77,22 @@ class SignUpScreen extends StatelessWidget {
                       ),
                       items: ['NGO', 'People']
                           .map((label) => DropdownMenuItem(
-                                child: Text(label),
                                 value: label,
+                                child: Text(label),
                               ))
                           .toList(),
-                      hint: Text('User Type'),
+                      hint: const Text('User Type'),
                       onChanged: (value) {},
                     ),
                   ),
-                  SizedBox(height: 10), // Maintain consistent spacing
-                  // Scroll icon
-                  Center(
+                  const SizedBox(height: 10), 
+                  
+                  const Center(
                     child: Icon(
                       Icons.arrow_drop_up,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Center(
                     child: ElevatedButton(
                       onPressed: () {},
@@ -99,7 +101,7 @@ class SignUpScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        padding: EdgeInsets.symmetric(
+                        padding: const EdgeInsets.symmetric(
                             vertical: 15.0, horizontal: 80.0),
                       ),
                       child: Text(
@@ -112,7 +114,7 @@ class SignUpScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -134,14 +136,14 @@ class SignUpScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Center(
                     child: Text(
                       'OR',
                       style: GoogleFonts.poppins(),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -155,7 +157,7 @@ class SignUpScreen extends StatelessWidget {
                       ),
                       IconButton(
                         onPressed: () {},
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.facebook,
                           color: Colors.blue,
                         ),

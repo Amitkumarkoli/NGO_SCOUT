@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
+            SizedBox(
               width: double.infinity,
               height: MediaQuery.of(context).size.height * 0.4,
               child: Image.asset(
@@ -16,7 +18,7 @@ class LoginScreen extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Column(
@@ -30,20 +32,20 @@ class LoginScreen extends StatelessWidget {
                       color: Colors.green[500],
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   TextFormField(
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.email),
+                      prefixIcon: const Icon(Icons.email),
                       labelText: 'Enter Email',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextFormField(
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.lock),
+                      prefixIcon: const Icon(Icons.lock),
                       labelText: 'Enter Password',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -51,7 +53,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     obscureText: true,
                   ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   Align(
                     alignment: Alignment.centerLeft,
                     child: TextButton(
@@ -65,7 +67,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     width: 150,
                     height: 60,
                     child: DropdownButtonFormField<String>(
@@ -76,16 +78,16 @@ class LoginScreen extends StatelessWidget {
                       ),
                       items: ['NGO', 'People']
                           .map((label) => DropdownMenuItem(
-                                child: Text(label),
                                 value: label,
+                                child: Text(label),
                               ))
                           .toList(),
-                      hint: Text('User Type'),
+                      hint: const Text('User Type'),
                       onChanged: (value) {},
                     ),
                   ),
-                  SizedBox(height: 5),
-                  Center(
+                  const SizedBox(height: 5),
+                  const Center(
                     child: Icon(
                       Icons.arrow_drop_up,
                     ),
@@ -98,7 +100,7 @@ class LoginScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        padding: EdgeInsets.symmetric(
+                        padding: const EdgeInsets.symmetric(
                             vertical: 15.0, horizontal: 80.0),
                       ),
                       child: Text(
@@ -111,7 +113,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -133,14 +135,14 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Center(
                     child: Text(
                       'OR',
                       style: GoogleFonts.poppins(),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -154,7 +156,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                       IconButton(
                         onPressed: () {},
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.facebook,
                           color: Colors.blue,
                         ),

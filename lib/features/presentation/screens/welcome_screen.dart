@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:ngo_scout/core/providers/welcome_provider.dart';
 
 class WelcomeScreen extends StatefulWidget {
+  const WelcomeScreen({super.key});
+
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
@@ -12,7 +14,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 5), () {
       Provider.of<WelcomeProvider>(context, listen: false).showNewScreen();
     });
   }
@@ -30,7 +32,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Welcome to',
                     style: TextStyle(
                       fontSize: 18,
@@ -38,7 +40,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       color: Colors.lightGreen,
                     ),
                   ),
-                  SizedBox(height: 6),
+                  const SizedBox(height: 6),
                   Center(
                     child: Text(
                       'NGO SCOUT',
@@ -49,8 +51,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 6),
-                  Align(
+                  const SizedBox(height: 6),
+                  const Align(
                     alignment: Alignment.centerRight,
                     child: Text(
                       'Discover, Connect, Impact',
@@ -61,7 +63,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       ),
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Center(
                     child: SizedBox(
                       width: 700,
@@ -72,12 +74,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       ),
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                 ],
               ),
             ),
           ] else
-            NewContentScreen(),
+            const NewContentScreen(),
           Positioned(
             bottom: 30,
             left: 0,
@@ -94,7 +96,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   onPressed: () {
                     Navigator.pushNamed(context, '/login');
                   },
-                  child: Text(
+                  child: const Text(
                     'Get Started',
                     style: TextStyle(fontSize: 18),
                   ),

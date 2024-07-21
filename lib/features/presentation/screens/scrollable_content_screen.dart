@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class NewContentScreen extends StatelessWidget {
+  const NewContentScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +21,7 @@ class NewContentScreen extends StatelessWidget {
                     color: Colors.green[500],
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Image.asset(
@@ -28,8 +30,8 @@ class NewContentScreen extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-                SizedBox(height: 10),
-                Column(
+                const SizedBox(height: 10),
+                const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -48,7 +50,7 @@ class NewContentScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 buildContentContainer(
                   'assets/images/avatar1.png',
                   'Discover NGOs',
@@ -76,8 +78,8 @@ class NewContentScreen extends StatelessWidget {
                       'markers to access brief information about each NGO, such as mission focus '
                       'and contact details.',
                 ),
-                SizedBox(height: 20),
-                Text(
+                const SizedBox(height: 20),
+                const Text(
                   'How It Works?',
                   style: TextStyle(
                     fontSize: 18,
@@ -85,7 +87,7 @@ class NewContentScreen extends StatelessWidget {
                     color: Colors.lightGreen,
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Row(
                   children: [
                     Expanded(
@@ -103,7 +105,7 @@ class NewContentScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Row(
                   children: [
                     Expanded(
@@ -121,7 +123,7 @@ class NewContentScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Row(
                   children: [
                     Expanded(
@@ -139,8 +141,8 @@ class NewContentScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 20),
-                SizedBox(height: 50),
+                const SizedBox(height: 20),
+                const SizedBox(height: 50),
               ],
             ),
           ),
@@ -152,8 +154,8 @@ class NewContentScreen extends StatelessWidget {
   Widget buildContentContainer(
       String avatarImage, String text, String paragraphText) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
-      padding: EdgeInsets.all(20),
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.grey[200],
         borderRadius: BorderRadius.circular(10),
@@ -169,24 +171,24 @@ class NewContentScreen extends StatelessWidget {
             radius: 30,
             backgroundImage: AssetImage(avatarImage),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Center(
             child: Text(
               text,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w400,
                 color: Colors.lightGreen,
               ),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
               paragraphText,
               textAlign: TextAlign.justify,
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
             ),
           ),
         ],
@@ -199,8 +201,8 @@ class NewContentScreen extends StatelessWidget {
     return Container(
       height: 325,
       width: 300,
-      margin: EdgeInsets.symmetric(vertical: 10),
-      padding: EdgeInsets.all(20),
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.grey[200],
         borderRadius: BorderRadius.circular(10),
@@ -216,29 +218,29 @@ class NewContentScreen extends StatelessWidget {
             radius: 30,
             backgroundImage: AssetImage(avatarImage),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Center(
             child: Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w400,
                 color: Colors.lightGreen,
               ),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           for (var point in points)
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 4.0),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('• ', style: TextStyle(fontSize: 16)),
+                  const Text('• ', style: TextStyle(fontSize: 16)),
                   Expanded(
                     child: Text(
                       point,
-                      style: TextStyle(fontSize: 16),
+                      style: const TextStyle(fontSize: 16),
                     ),
                   ),
                 ],
