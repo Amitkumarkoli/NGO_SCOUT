@@ -79,21 +79,19 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           ] else
             NewContentScreen(),
           Positioned(
-            bottom: 20,
+            bottom: 30,
             left: 0,
             right: 0,
             child: Center(
               child: SizedBox(
-                width: 400,
+                width: 300,
                 height: 60,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green[500],
                     foregroundColor: Colors.white,
                   ),
-                  onPressed: () {
-                    
-                  },
+                  onPressed: () {},
                   child: Text(
                     'Get Started',
                     style: TextStyle(fontSize: 18),
