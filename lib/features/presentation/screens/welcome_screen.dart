@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ngo_scout/features/presentation/screens/scrollable_content_screen.dart';
 import 'package:provider/provider.dart';
-import '../../domain/providers/welcome_provider.dart';
+import 'package:ngo_scout/core/providers/welcome_provider.dart';
 
 class WelcomeScreen extends StatefulWidget {
   @override
@@ -31,7 +31,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'welcome to',
+                    'Welcome to',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w400,
@@ -91,7 +91,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     backgroundColor: Colors.green[500],
                     foregroundColor: Colors.white,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/login');
+                  },
                   child: Text(
                     'Get Started',
                     style: TextStyle(fontSize: 18),
