@@ -1,13 +1,17 @@
-
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:ngo_scout/core/providers/welcome_provider.dart';
+import 'package:ngo_scout/features/presentation/home_screen.dart';
+import 'package:ngo_scout/features/presentation/screens/scrollable_content_screen.dart';
+import 'package:ngo_scout/features/presentation/screens/welcome_screen.dart';
+import 'package:ngo_scout/features/presentation/screens/login_screen.dart';
+import 'package:ngo_scout/features/presentation/screens/signup_screen.dart';
 import 'package:provider/provider.dart';
-import 'features/presentation/screens/welcome_screen.dart';
-import 'features/presentation/screens/login_screen.dart';
-import 'features/presentation/screens/signup_screen.dart';
-import 'features/presentation/screens/scrollable_content_screen.dart';
+import 'domain/providers/auth_provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -19,18 +23,17 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => WelcomeProvider()),
+        ChangeNotifierProvider(create: (_) => AuthProvider()),
       ],
       child: MaterialApp(
         title: 'NGO Scout',
-        theme: ThemeData(
-          primarySwatch: Colors.green,
-        ),
         initialRoute: '/',
         routes: {
           '/': (context) => const WelcomeScreen(),
-          '/newContent': (context) => const NewContentScreen(),
+          '/new_content': (context) => const NewContentScreen(),
           '/login': (context) => const LoginScreen(),
           '/signup': (context) => const SignUpScreen(),
+          '/home': (context) => const HomeScreen(),
         },
       ),
     );

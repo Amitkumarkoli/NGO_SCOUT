@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "116490824602",
+    "project_id": "ngo-scout",
+    "storage_bucket": "ngo-scout.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:116490824602:android:fcd1d2442b99af2751a823",
+        "android_client_info": {
+          "package_name": "com.example.ngo_scout"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0cCfMEj54rhuGSrYgOZox7Zz7jv2L9cI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
