@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         title: 'NGO Scout',
         // initialRoute: AppRoutes.welcome,
         // routes: AppRoutes.routes, // Use the routes from your routes file
-        home: PeopleHomeScreen(),
+        home: NgoHomeScreen(),
       ),
     );
   }

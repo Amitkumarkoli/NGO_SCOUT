@@ -65,10 +65,50 @@ class _NgoHomeScreenState extends State<NgoHomeScreen> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    _buildEventContainer(context, 'Event 1'),
-                    _buildEventContainer(context, 'Event 2'),
-                    _buildEventContainer(context, 'Event 3'),
-                    _buildEventContainer(context, 'Event 4'),
+                    _buildEventContainer(
+                      context,
+                      'Event 1',
+                      'assets/images/volunteer.jpg',
+                      true,
+                      [
+                        'assets/images/circular_image_4.png',
+                        'assets/images/circular_image_4.png'
+                      ],
+                      250,
+                    ),
+                    _buildEventContainer(
+                      context,
+                      'Event 2',
+                      'assets/images/volunteer.jpg',
+                      false,
+                      [
+                        'assets/images/circular_image_4.png',
+                        'assets/images/circular_image_4.png'
+                      ],
+                      180,
+                    ),
+                    _buildEventContainer(
+                      context,
+                      'Event 3',
+                      'assets/images/volunteer.jpg',
+                      true,
+                      [
+                        'assets/images/circular_image_4.png',
+                        'assets/images/circular_image_4.png'
+                      ],
+                      300,
+                    ),
+                    _buildEventContainer(
+                      context,
+                      'Event 4',
+                      'assets/images/volunteer.jpg',
+                      false,
+                      [
+                        'assets/images/circular_image_4.png',
+                        'assets/images/circular_image_4.png'
+                      ],
+                      120,
+                    ),
                   ],
                 ),
               ),
@@ -81,9 +121,30 @@ class _NgoHomeScreenState extends State<NgoHomeScreen> {
                 ),
               ),
               const SizedBox(height: 10),
-              _buildFeaturedContainer(context, 'Featured Content 1'),
-              _buildFeaturedContainer(context, 'Featured Content 2'),
-              _buildFeaturedContainer(context, 'Featured Content 3'),
+              _buildFeaturedContainer(
+                context,
+                'assets/images/volunteer.jpg',
+                'Organization Name',
+                'Location Name',
+                4.5,
+                100,
+              ),
+              _buildFeaturedContainer(
+                context,
+                'assets/images/volunteer.jpg',
+                'Organization Name',
+                'Location Name',
+                4.0,
+                80,
+              ),
+              _buildFeaturedContainer(
+                context,
+                'assets/images/volunteer.jpg',
+                'Organization Name',
+                'Location Name',
+                3.5,
+                60,
+              ),
               const SizedBox(height: 20),
               Text(
                 'You Can Follow',
@@ -97,10 +158,14 @@ class _NgoHomeScreenState extends State<NgoHomeScreen> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    _buildTestimonialContainer(context, 'assets/images/circular_image_4.png'),
-                    _buildTestimonialContainer(context, 'assets/images/circular_image_4.png'),
-                    _buildTestimonialContainer(context, 'assets/images/circular_image_4.png'),
-                    _buildTestimonialContainer(context, 'assets/images/circular_image_4.png'),
+                    _buildTestimonialContainer(
+                        context, 'assets/images/circular_image_4.png'),
+                    _buildTestimonialContainer(
+                        context, 'assets/images/circular_image_4.png'),
+                    _buildTestimonialContainer(
+                        context, 'assets/images/circular_image_4.png'),
+                    _buildTestimonialContainer(
+                        context, 'assets/images/circular_image_4.png'),
                   ],
                 ),
               ),
@@ -135,7 +200,8 @@ class _NgoHomeScreenState extends State<NgoHomeScreen> {
     );
   }
 
-  Widget _buildTopContainer(BuildContext context, String imagePath, String title, String number) {
+  Widget _buildTopContainer(
+      BuildContext context, String imagePath, String title, String number) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.4,
       padding: const EdgeInsets.all(16.0),
@@ -147,7 +213,7 @@ class _NgoHomeScreenState extends State<NgoHomeScreen> {
             color: Colors.grey.withOpacity(0.3),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
           ),
         ],
       ),
@@ -178,11 +244,16 @@ class _NgoHomeScreenState extends State<NgoHomeScreen> {
     );
   }
 
-  Widget _buildEventContainer(BuildContext context, String eventName) {
+  Widget _buildEventContainer(
+      BuildContext context,
+      String eventName,
+      String imagePath,
+      bool isOnline,
+      List<String> participantImages,
+      int participantCount) {
     return Container(
       margin: const EdgeInsets.only(right: 10),
-      height: 150,
-      width: 150,
+      width: 200,
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -196,24 +267,73 @@ class _NgoHomeScreenState extends State<NgoHomeScreen> {
           ),
         ],
       ),
-      child: Center(
-        child: Text(
-          eventName,
-          style: GoogleFonts.poppins(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            eventName,
+            style: GoogleFonts.poppins(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
+          const SizedBox(height: 5),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(15.0), // Rounded border
+            child: Image.asset(
+              imagePath,
+              height: 100,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
+          ),
+          const SizedBox(height: 5),
+          Row(
+            children: [
+              Icon(
+                isOnline ? Icons.cloud : Icons.location_on,
+                color: isOnline ? Colors.green : Colors.red,
+                size: 16,
+              ),
+              const SizedBox(width: 5),
+              Text(
+                isOnline ? 'Online' : 'Offline',
+                style: GoogleFonts.poppins(fontSize: 14, color: Colors.grey),
+              ),
+            ],
+          ),
+          const SizedBox(height: 5),
+          Row(
+            children: participantImages.map((imagePath) {
+              return Padding(
+                padding: const EdgeInsets.only(right: 5),
+                child: CircleAvatar(
+                  radius: 10,
+                  backgroundImage: AssetImage(imagePath),
+                ),
+              );
+            }).toList(),
+          ),
+          const SizedBox(height: 5),
+          Text(
+            '$participantCount+ participants',
+            style: GoogleFonts.poppins(fontSize: 14, color: Colors.grey),
+          ),
+        ],
       ),
     );
   }
 
-  Widget _buildFeaturedContainer(BuildContext context, String content) {
+  Widget _buildFeaturedContainer(
+    BuildContext context,
+    String imagePath,
+    String organizationName,
+    String locationName,
+    double rating,
+    int employeeCount,
+  ) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10),
-      height: 150,
-      width: double.infinity,
-      padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(15),
@@ -226,14 +346,63 @@ class _NgoHomeScreenState extends State<NgoHomeScreen> {
           ),
         ],
       ),
-      child: Center(
-        child: Text(
-          content,
-          style: GoogleFonts.poppins(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
+      child: Row(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(15.0), // Rounded border
+            child: Image.asset(
+              imagePath,
+              height: 100,
+              width: 100,
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  organizationName,
+                  style: GoogleFonts.poppins(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Row(
+                  children: List.generate(
+                    5,
+                    (index) => Icon(
+                      Icons.star,
+                      color: index < rating ? Colors.amber : Colors.grey,
+                      size: 16,
+                    ),
+                  ),
+                ),
+                Row(
+                  children: [
+                    Icon(Icons.location_on, size: 16),
+                    Text(
+                      locationName,
+                      style:
+                          GoogleFonts.poppins(fontSize: 14, color: Colors.grey),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Icon(Icons.people, size: 16),
+                    Text(
+                      '$employeeCount employees',
+                      style:
+                          GoogleFonts.poppins(fontSize: 14, color: Colors.grey),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
