@@ -73,6 +73,7 @@ flutter:
     - assets/images/volunteer.jpg
     - assets/images/volunteer2.jpg
     - assets/images/google_icon.png
+    - assets/images/circular_image_4.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

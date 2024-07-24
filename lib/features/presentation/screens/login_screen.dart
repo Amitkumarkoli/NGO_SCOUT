@@ -13,6 +13,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  String? _userType;
 
   void _login() async {
     final email = _emailController.text.trim();
@@ -21,7 +22,11 @@ class _LoginScreenState extends State<LoginScreen> {
     await context.read<AuthProvider>().login(email, password);
 
     if (context.read<AuthProvider>().user != null) {
-      Navigator.pushReplacementNamed(context, '/home');
+      if (_userType == 'NGO') {
+        Navigator.pushReplacementNamed(context, '/ngo_home');
+      } else if (_userType == 'People') {
+        Navigator.pushReplacementNamed(context, '/people_home');
+      }
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Login failed')),
@@ -112,7 +117,11 @@ class _LoginScreenState extends State<LoginScreen> {
                               ))
                           .toList(),
                       hint: const Text('User Type'),
-                      onChanged: (value) {},
+                      onChanged: (value) {
+                        setState(() {
+                          _userType = value;
+                        });
+                      },
                     ),
                   ),
                   const SizedBox(height: 5),

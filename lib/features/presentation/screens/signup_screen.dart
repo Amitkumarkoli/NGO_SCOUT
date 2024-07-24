@@ -14,6 +14,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
+  String? _userType;
 
   void _signUp() async {
     if (_passwordController.text.trim() != _confirmPasswordController.text.trim()) {
@@ -27,7 +28,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
     await context.read<AuthProvider>().signUp(email, password);
 
     if (context.read<AuthProvider>().user != null) {
-      Navigator.pushReplacementNamed(context, '/home'); 
+      if (_userType == 'NGO') {
+        Navigator.pushReplacementNamed(context, '/ngo_home');
+      } else if (_userType == 'People') {
+        Navigator.pushReplacementNamed(context, '/people_home');
+      }
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Sign Up failed')),
@@ -102,8 +107,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   const SizedBox(height: 10),
                   SizedBox(
-                    width: 150,
-                    height: 60,
+                    width: double.infinity,
                     child: DropdownButtonFormField<String>(
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -116,17 +120,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 child: Text(label),
                               ))
                           .toList(),
-                      hint: const Text('User Type'),
-                      onChanged: (value) {},
+                      hint: const Text('Select User Type'),
+                      onChanged: (value) {
+                        setState(() {
+                          _userType = value;
+                        });
+                      },
                     ),
                   ),
-                  const SizedBox(height: 10),
-                  const Center(
-                    child: Icon(
-                      Icons.arrow_drop_up,
-                    ),
-                  ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 20),
                   Center(
                     child: isLoading
                         ? const CircularProgressIndicator()
@@ -168,34 +170,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             color: Colors.green,
                             fontWeight: FontWeight.bold,
                           ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-                  Center(
-                    child: Text(
-                      'OR',
-                      style: GoogleFonts.poppins(),
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      IconButton(
-                        onPressed: () {},
-                        icon: Image.asset(
-                          'assets/images/google_icon.png',
-                          width: 24,
-                          height: 24,
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.facebook,
-                          color: Colors.blue,
                         ),
                       ),
                     ],
