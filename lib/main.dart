@@ -6,6 +6,7 @@ import 'package:ngo_scout/features/presentation/screens/home_screen.dart';
 import 'package:ngo_scout/features/presentation/screens/people_home_screen';
 import 'package:ngo_scout/features/presentation/screens/scrollable_content_screen.dart';
 import 'package:ngo_scout/features/presentation/screens/search_screen.dart';
+import 'package:ngo_scout/features/presentation/screens/user_profile.dart';
 import 'package:ngo_scout/features/presentation/screens/welcome_screen.dart';
 import 'package:ngo_scout/features/presentation/screens/login_screen.dart';
 import 'package:ngo_scout/features/presentation/screens/signup_screen.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
         title: 'NGO Scout',
         // initialRoute: AppRoutes.welcome,
         // routes: AppRoutes.routes, // Use the routes from your routes file
-        home: SearchScreen(),
+        home: UserProfile(),
       ),
     );
   }
