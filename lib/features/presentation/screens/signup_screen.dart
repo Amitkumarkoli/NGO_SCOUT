@@ -13,12 +13,15 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
   String? _userType;
 
   void _signUp() async {
-    if (_passwordController.text.trim() != _confirmPasswordController.text.trim()) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Passwords do not match')));
+    if (_passwordController.text.trim() !=
+        _confirmPasswordController.text.trim()) {
+      ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Passwords do not match')));
       return;
     }
 
@@ -128,7 +131,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       },
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 5),
+                  const Center(
+                    child: Icon(
+                      Icons.arrow_drop_up,
+                    ),
+                  ),
                   Center(
                     child: isLoading
                         ? const CircularProgressIndicator()

@@ -9,10 +9,10 @@ import 'package:ngo_scout/features/presentation/screens/welcome_screen.dart';
 
 class AppRoutes {
   static const String welcome = '/';
+  static const String scrollable = '/scrollable';
   static const String login = '/login';
   static const String signup = '/signup';
   static const String home = '/home';
-  static const String scrollable = '/scrollable';
   static const String ngoHome = '/ngo_home';    // Add this route
   static const String peopleHome = '/people_home'; // Add this route
 

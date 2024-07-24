@@ -30,11 +30,10 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => WelcomeProvider()),
         ChangeNotifierProvider(create: (_) => AuthProvider()),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
         title: 'NGO Scout',
-        // initialRoute: AppRoutes.welcome,
-        // routes: AppRoutes.routes, // Use the routes from your routes file
-        home: UserProfile(),
+        initialRoute: AppRoutes.welcome,
+        routes: AppRoutes.routes, // Use the routes from your routes file
       ),
     );
   }
