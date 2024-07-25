@@ -5,10 +5,10 @@ class PeopleHomeScreen extends StatefulWidget {
   const PeopleHomeScreen({super.key});
 
   @override
-  _PeopleHomeScreenState createState() => _PeopleHomeScreenState();
+  _NgoHomeScreenState createState() => _NgoHomeScreenState();
 }
 
-class _PeopleHomeScreenState extends State<PeopleHomeScreen> {
+class _NgoHomeScreenState extends State<PeopleHomeScreen> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -27,7 +27,7 @@ class _PeopleHomeScreenState extends State<PeopleHomeScreen> {
             style: GoogleFonts.poppins(),
           ),
         ),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.green,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -41,22 +41,20 @@ class _PeopleHomeScreenState extends State<PeopleHomeScreen> {
                   _buildTopContainer(
                     context,
                     'assets/images/circular_image_4.png',
-                    '120 events hosted',
-                    '120',
-                    'in the last 90 days',
+                    'Reached',
+                    '10,000',
                   ),
                   _buildTopContainer(
                     context,
                     'assets/images/circular_image_4.png',
-                    '1K followers',
-                    '1K',
-                    '',
+                    'Followers',
+                    '5,000',
                   ),
                 ],
               ),
               const SizedBox(height: 20),
               Text(
-                'Events Hosted',
+                'Events Attended',
                 style: GoogleFonts.poppins(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -116,14 +114,14 @@ class _PeopleHomeScreenState extends State<PeopleHomeScreen> {
               ),
               const SizedBox(height: 20),
               Text(
-                'Related',
+                'Featured',
                 style: GoogleFonts.poppins(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               const SizedBox(height: 10),
-              _buildRelatedContainer(
+              _buildFeaturedContainer(
                 context,
                 'assets/images/volunteer.jpg',
                 'Organization Name',
@@ -131,7 +129,7 @@ class _PeopleHomeScreenState extends State<PeopleHomeScreen> {
                 4.5,
                 100,
               ),
-              _buildRelatedContainer(
+              _buildFeaturedContainer(
                 context,
                 'assets/images/volunteer.jpg',
                 'Organization Name',
@@ -139,7 +137,7 @@ class _PeopleHomeScreenState extends State<PeopleHomeScreen> {
                 4.0,
                 80,
               ),
-              _buildRelatedContainer(
+              _buildFeaturedContainer(
                 context,
                 'assets/images/volunteer.jpg',
                 'Organization Name',
@@ -149,7 +147,7 @@ class _PeopleHomeScreenState extends State<PeopleHomeScreen> {
               ),
               const SizedBox(height: 20),
               Text(
-                'Testimonials',
+                'You Can Follow',
                 style: GoogleFonts.poppins(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -161,29 +159,13 @@ class _PeopleHomeScreenState extends State<PeopleHomeScreen> {
                 child: Row(
                   children: [
                     _buildTestimonialContainer(
-                      context,
-                      'assets/images/circular_image_4.png',
-                      'Great Event! The organizers were very helpful and everything was well planned. I had a wonderful experience.',
-                      'John Doe',
-                    ),
+                        context, 'assets/images/circular_image_4.png'),
                     _buildTestimonialContainer(
-                      context,
-                      'assets/images/circular_image_4.png',
-                      'Amazing Experience! The activities were engaging and the community was welcoming. I\'d love to participate again.',
-                      'Jane Doe',
-                    ),
+                        context, 'assets/images/circular_image_4.png'),
                     _buildTestimonialContainer(
-                      context,
-                      'assets/images/circular_image_4.png',
-                      'Loved it! It was a memorable event with lots of learning opportunities and fun activities.',
-                      'Alex Smith',
-                    ),
+                        context, 'assets/images/circular_image_4.png'),
                     _buildTestimonialContainer(
-                      context,
-                      'assets/images/circular_image_4.png',
-                      'Highly Recommend! A great way to spend time and meet new people. Very well organized.',
-                      'Maria Garcia',
-                    ),
+                        context, 'assets/images/circular_image_4.png'),
                   ],
                 ),
               ),
@@ -194,7 +176,7 @@ class _PeopleHomeScreenState extends State<PeopleHomeScreen> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.dashboard),
             label: 'Home',
           ),
           BottomNavigationBarItem(
@@ -211,14 +193,15 @@ class _PeopleHomeScreenState extends State<PeopleHomeScreen> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
+        selectedItemColor: Colors.green,
         unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
       ),
     );
   }
 
-  Widget _buildTopContainer(BuildContext context, String imagePath, String title, String number, String subtitle) {
+  Widget _buildTopContainer(
+      BuildContext context, String imagePath, String title, String number) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.4,
       padding: const EdgeInsets.all(16.0),
@@ -230,7 +213,7 @@ class _PeopleHomeScreenState extends State<PeopleHomeScreen> {
             color: Colors.grey.withOpacity(0.3),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
           ),
         ],
       ),
@@ -242,36 +225,32 @@ class _PeopleHomeScreenState extends State<PeopleHomeScreen> {
           ),
           const SizedBox(height: 10),
           Text(
-            number,
+            title,
             style: GoogleFonts.poppins(
-              fontSize: 24,
+              fontSize: 16,
               fontWeight: FontWeight.bold,
-              color: Colors.blue,
             ),
           ),
           const SizedBox(height: 5),
           Text(
-            title,
+            number,
             style: GoogleFonts.poppins(
               fontSize: 16,
+              color: Colors.green,
             ),
           ),
-          if (subtitle.isNotEmpty) ...[
-            const SizedBox(height: 5),
-            Text(
-              subtitle,
-              style: GoogleFonts.poppins(
-                fontSize: 14,
-                color: Colors.grey,
-              ),
-            ),
-          ],
         ],
       ),
     );
   }
 
-  Widget _buildEventContainer(BuildContext context, String eventName, String imagePath, bool isOnline, List<String> participantImages, int participantCount) {
+  Widget _buildEventContainer(
+      BuildContext context,
+      String eventName,
+      String imagePath,
+      bool isOnline,
+      List<String> participantImages,
+      int participantCount) {
     return Container(
       margin: const EdgeInsets.only(right: 10),
       width: 200,
@@ -345,7 +324,7 @@ class _PeopleHomeScreenState extends State<PeopleHomeScreen> {
     );
   }
 
-  Widget _buildRelatedContainer(
+  Widget _buildFeaturedContainer(
     BuildContext context,
     String imagePath,
     String organizationName,
@@ -405,7 +384,8 @@ class _PeopleHomeScreenState extends State<PeopleHomeScreen> {
                     Icon(Icons.location_on, size: 16),
                     Text(
                       locationName,
-                      style: GoogleFonts.poppins(fontSize: 14, color: Colors.grey),
+                      style:
+                          GoogleFonts.poppins(fontSize: 14, color: Colors.grey),
                     ),
                   ],
                 ),
@@ -414,7 +394,8 @@ class _PeopleHomeScreenState extends State<PeopleHomeScreen> {
                     Icon(Icons.people, size: 16),
                     Text(
                       '$employeeCount employees',
-                      style: GoogleFonts.poppins(fontSize: 14, color: Colors.grey),
+                      style:
+                          GoogleFonts.poppins(fontSize: 14, color: Colors.grey),
                     ),
                   ],
                 ),
@@ -426,49 +407,12 @@ class _PeopleHomeScreenState extends State<PeopleHomeScreen> {
     );
   }
 
-  Widget _buildTestimonialContainer(
-    BuildContext context,
-    String imagePath,
-    String testimonial,
-    String name,
-  ) {
+  Widget _buildTestimonialContainer(BuildContext context, String imagePath) {
     return Container(
-      width: 250,
       margin: const EdgeInsets.only(right: 10),
-      padding: const EdgeInsets.all(16.0),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(15),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
-            spreadRadius: 2,
-            blurRadius: 5,
-            offset: Offset(0, 3),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CircleAvatar(
-            radius: 20,
-            backgroundImage: AssetImage(imagePath),
-          ),
-          const SizedBox(height: 10),
-          Text(
-            '"$testimonial"',
-            style: GoogleFonts.poppins(fontSize: 14),
-          ),
-          const SizedBox(height: 10),
-          Text(
-            '- $name',
-            style: GoogleFonts.poppins(
-              fontWeight: FontWeight.bold,
-              fontSize: 14,
-            ),
-          ),
-        ],
+      child: CircleAvatar(
+        radius: 40,
+        backgroundImage: AssetImage(imagePath),
       ),
     );
   }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ngo_scout/features/presentation/screens/login_screen.dart';
-import 'package:ngo_scout/features/presentation/screens/people_home_screen.dart';
+import 'package:ngo_scout/features/presentation/screens/ngo_home_screen.dart';
 import 'package:ngo_scout/features/presentation/screens/signup_screen.dart';
 import 'package:ngo_scout/features/presentation/screens/scrollable_content_screen.dart';
-import 'package:ngo_scout/features/presentation/screens/ngo_home_screen.dart';  // Add this import
+import 'package:ngo_scout/features/presentation/screens/people_home_screen.dart';  // Add this import
 import 'package:ngo_scout/features/presentation/screens/welcome_screen.dart';
 
 class AppRoutes {
