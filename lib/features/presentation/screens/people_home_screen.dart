@@ -204,6 +204,7 @@ class _NgoHomeScreenState extends State<PeopleHomeScreen> {
       BuildContext context, String imagePath, String title, String number) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.4,
+      height: 200,
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: Colors.white,
