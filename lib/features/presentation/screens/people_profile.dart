@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class UserProfile extends StatefulWidget {
-  const UserProfile({super.key});
+class PeopleProfile extends StatefulWidget {
+  const PeopleProfile({super.key});
 
   @override
   _UserProfileState createState() => _UserProfileState();
 }
 
-class _UserProfileState extends State<UserProfile> {
+class _UserProfileState extends State<PeopleProfile> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {

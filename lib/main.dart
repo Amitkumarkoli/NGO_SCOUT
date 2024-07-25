@@ -4,7 +4,7 @@ import 'package:ngo_scout/core/providers/welcome_provider.dart';
 import 'package:ngo_scout/domain/providers/auth_provider.dart';
 import 'package:ngo_scout/features/presentation/screens/scrollable_content_screen.dart';
 import 'package:ngo_scout/features/presentation/screens/search_screen.dart';
-import 'package:ngo_scout/features/presentation/screens/user_profile.dart';
+import 'package:ngo_scout/features/presentation/screens/people_profile.dart';
 import 'package:ngo_scout/features/presentation/screens/welcome_screen.dart';
 import 'package:ngo_scout/features/presentation/screens/login_screen.dart';
 import 'package:ngo_scout/features/presentation/screens/signup_screen.dart';
